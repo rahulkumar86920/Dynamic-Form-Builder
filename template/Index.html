@@ -1,66 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dynamic Form Builder</title>
-<link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Builder</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    
-<header class="topbar">
-<h1>Dynamic Form Builder</h1>
-<div class="top-actions">
-<button id="toggle-theme">Toggle Theme</button>
-<button id="preview-toggle">Preview Form</button>
-<button id="export-json">Export as JSON</button>
-<button id="export-html">Export as HTML</button>
-<button id="save-local">Save Form</button>
-<button id="load-local">Load Form</button>
-</div>
-</header>
+    <div class="container">
+        <header>
+            <h1>Dynamic Form Builder</h1>
+            <div class="toolbar">
+                <button id="previewBtn">Preview Form</button>
+                <button id="exportBtn">Export as JSON</button>
+                <button id="editBtn" style="display: none;">Edit Form</button>
+            </div>
+        </header>
 
+        <div class="main-content">
+            <!-- Left Panel - Field Types -->
+            <div class="panel left-panel">
+                <h2>Field Types</h2>
+                <div class="field-types">
+                    <div class="field-type" data-type="text">📝 Text</div>
+                    <div class="field-type" data-type="email">📧 Email</div>
+                    <div class="field-type" data-type="number">🔢 Number</div>
+                    <div class="field-type" data-type="checkbox">☑️ Checkbox</div>
+                    <div class="field-type" data-type="radio">🔘 Radio</div>
+                    <div class="field-type" data-type="date">📅 Date</div>
+                    <div class="field-type" data-type="dropdown">🔻 Dropdown</div>
+                </div>
+            </div>
 
-<main class="container">
-<aside class="panel left" id="field-palette">
-<h2>Fields</h2>
-<div class="field-list">
-<button class="palette-item" data-type="text">Text</button>
-<button class="palette-item" data-type="email">Email</button>
-<button class="palette-item" data-type="number">Number</button>
-<button class="palette-item" data-type="checkbox">Checkbox</button>
-<button class="palette-item" data-type="radio">Radio</button>
-<button class="palette-item" data-type="date">Date</button>
-<button class="palette-item" data-type="dropdown">Dropdown</button>
-</div>
-<p class="hint">Drag to reorder fields in the builder area.</p>
-</aside>
+            <!-- Center Panel - Form Builder -->
+            <div class="panel center-panel">
+                <h2>Form Builder</h2>
+                <div id="formBuilder" class="form-builder">
+                    <div class="drop-zone">
+                        <div class="drop-zone-icon">👇</div>
+                        <p>Drag fields here or click on a field type to add</p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Right Panel - Field Properties -->
+            <div class="panel right-panel">
+                <h2>⚙️ Field Properties</h2>
+                <div id="fieldProperties" class="field-properties">
+                    <p>Select a field to edit its properties</p>
+                </div>
+            </div>
+        </div>
 
-<section class="builder-area" id="builder-area">
-<h2>Form Builder</h2>
-<div id="form-builder" class="form-builder" aria-live="polite"></div>
-<div class="builder-empty" id="builder-empty">Add fields from the left to start building.</div>
-</section>
+        <!-- Preview Mode -->
+        <div id="previewMode" class="preview-mode" style="display: none;">
+            <div id="previewFormContainer"></div>
+        </div>
+    </div>
 
-
-<aside class="panel right" id="field-settings">
-<h2>Field Settings</h2>
-<div id="settings-content">
-<p>Select a field in builder to edit its settings.</p>
-</div>
-</aside>
-</main>
-
-
-<div id="preview-modal" class="preview-modal hidden">
-<div class="preview-content">
-<button id="close-preview">Close Preview</button>
-<form id="preview-form"></form>
-</div>
-</div>
-
-
-<script type="module" src="/static/js/events.js"></script>
+    <script src="../static/js/script.js"></script>
 </body>
 </html>
